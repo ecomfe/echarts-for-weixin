@@ -1,0 +1,5 @@
+/**index.wxss**/
+#measure {
+  width: 100%;
+  height: 500px;
+}
