@@ -19,10 +19,6 @@ function initChart(canvas, width, height) {
     yAxis: {
       show: false
     },
-    legend: {
-      data: ['预算', '开销'],
-
-    },
     radar: {
       // shape: 'circle',
       indicator: [{
@@ -56,27 +52,13 @@ function initChart(canvas, width, height) {
       type: 'radar',
       data: [{
         value: [430, 340, 500, 300, 490, 400],
-        // name: '预算'
+        name: '预算'
       },
       {
         value: [300, 430, 150, 300, 420, 250],
-        // name: '开销'
+        name: '开销'
       }
       ]
-    }, {
-      type: 'line',
-      name: '预算',
-      data: [],
-      itemStyle: {
-        color: '#37A2DA'
-      }
-    }, {
-      type: 'line',
-      data: [],
-      name: '开销',
-      itemStyle: {
-        color: '#FF9F7F'
-      }
     }]
   };
 
