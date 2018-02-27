@@ -85,6 +85,10 @@ Page({
 
 完整的例子请参见 [ecomfe/echarts-for-weixin](https://github.com/ecomfe/echarts-for-weixin) 项目。
 
+## 微信版本要求
+
+支持微信版本 >= 6.6.3。
+
 ## 暂不支持的功能
 
 ECharts 中的绝大部分功能都支持小程序版本，因此这里仅说明不支持的功能，以及存在的问题。
