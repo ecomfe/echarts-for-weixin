@@ -20,10 +20,10 @@ Component({
   ready: function () {
     const version = wx.version.version.split('.').map(n => parseInt(n, 10));
     const isValid = version[0] > 1 || (version[0] === 1 && version[1] >= 9)
-      || (version[0] === 1 && version [1] === 9 && version[2] >= 90);
+      || (version[0] === 1 && version [1] === 9 && version[2] >= 91);
     if (!isValid) {
       console.error('This version of Wexin is not supported by ECharts. '
-        + 'Please update Wexin with versions after 1.9.90');
+        + 'Please update Wexin with versions after 1.9.91');
       return;
     }
 
