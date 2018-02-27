@@ -79,7 +79,6 @@ export default class WxCanvas {
           zrX: name.wxName === 'tap' ? touch.clientX : touch.x,
           zrY: name.wxName === 'tap' ? touch.clientY : touch.y
         });
-        console.log(e);
       };
     });
   }
