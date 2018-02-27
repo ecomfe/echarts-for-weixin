@@ -4,6 +4,12 @@
 
 开发者可以通过熟悉的 ECharts 配置方式，快速开发图表，满足各种可视化需求。
 
+## 体验示例小程序
+
+扫描下面的二维码即可体验 ECharts Demo：
+
+![ECharts Demo](img/weixin-app.jpg)
+
 ## 下载
 
 为了兼容小程序 Canvas，我们提供了一个小程序的组件，用这种方式可以方便地使用 ECharts。
