@@ -6,7 +6,7 @@
 
 ## 体验示例小程序
 
-扫描下面的二维码即可体验 ECharts Demo：
+在微信中扫描下面的二维码即可体验 ECharts Demo：
 
 ![ECharts Demo](img/weixin-app.jpg)
 
@@ -14,7 +14,7 @@
 
 为了兼容小程序 Canvas，我们提供了一个小程序的组件，用这种方式可以方便地使用 ECharts。
 
-首先，下载 GitHub 上的 [ecomfe/echarts-for-weixin](https://github.com/ecomfe/echarts-for-weixin) 项目。
+首先，下载本项目。
 
 其中，`ec-canvas` 是我们提供的组件，其他文件是如何使用该组件的示例。
 
