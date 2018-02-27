@@ -62,8 +62,7 @@ function initChart(canvas, width, height) {
     },
     series: [{
       name: 'Punch Card',
-      type: 'scatter',
-      symbolSize: 30,
+      type: 'heatmap',
       data: data,
       label: {
         normal: {
