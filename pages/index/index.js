@@ -64,6 +64,10 @@ Page({
     }, {
       id: 'themeRiver',
       name: '主题河流图'
+    }],
+    chartsWithoutImg: [{
+      id: 'lazyLoad',
+      name: '延迟加载图表'
     }]
   },
 

@@ -3,14 +3,14 @@
   margin-top: 10px;
 }
 
-.panel .chart {
+.panel .chart-with-img {
   display: inline-block;
   width: 25%;
   margin: 10px 4%;
   text-align: center;
 }
 
-.chart image {
+.chart-with-img image {
   box-sizing: border-box;
   width: 100%;
   height: 100px; 
@@ -20,4 +20,16 @@
   display: block;
   margin: 0 auto;
   margin-bottom: 10px;
+}
+
+.chart-without-img {
+  display: block;
+  width: 92%;
+  margin: 10px 4%;
+  border: none;
+  border-radius: 0;
+}
+
+.chart-without-img button {
+  text-align: left;
 }

@@ -1,0 +1,12 @@
+/**index.wxss**/
+ec-canvas {
+  position: absolute;
+  top: 80px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+button {
+  margin: 10px;
+}

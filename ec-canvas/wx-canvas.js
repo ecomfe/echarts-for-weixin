@@ -23,6 +23,10 @@ export default class WxCanvas {
     // noop
   }
 
+  detachEvent() {
+    // noop
+  }
+
   _initCanvas(zrender, ctx) {
     zrender.util.getContext = function () {
       return ctx;

@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+  <button bindtap="init" wx:if="{{!isLoaded}}">加载图表</button>
+  <button bindtap="dispose" wx:if="{{isLoaded && !isDisposed}}">释放图表</button>
+  <ec-canvas wx:if="{{!isDisposed}}" id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+</view>

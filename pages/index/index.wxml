@@ -1,7 +1,10 @@
 <!--index.wxml-->
 <view class="panel">
-  <view class="chart" wx:for="{{charts}}" wx:for-item="chart" wx:key="{{chart.id}}">
+  <view class="chart-with-img" wx:for="{{charts}}" wx:for-item="chart" wx:key="{{chart.id}}">
     <image src="../../img/icons/{{chart.id}}.png" mode="aspectFit" bindtap="open" data-chart="{{chart}}"></image>
     {{chart.name}}
+  </view>
+  <view class="chart-without-img" wx:for="{{chartsWithoutImg}}" wx:for-item="chart" wx:key="{{chart.id}}">
+    <button bindtap="open" data-chart="{{chart}}">{{chart.name}}</button>
   </view>
 </view>

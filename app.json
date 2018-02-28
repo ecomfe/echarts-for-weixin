@@ -19,7 +19,8 @@
     "pages/boxplot/index",
     "pages/parallel/index",
     "pages/sankey/index",
-    "pages/themeRiver/index"
+    "pages/themeRiver/index",
+    "pages/lazyLoad/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
