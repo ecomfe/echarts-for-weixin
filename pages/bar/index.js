@@ -1,9 +1,9 @@
 import * as echarts from '../../ec-canvas/echarts';
 
-const app = getApp();
+let chart = null;
 
 function initChart(canvas, width, height) {
-  const chart = echarts.init(canvas, null, {
+  chart = echarts.init(canvas, null, {
     width: width,
     height: height
   });
@@ -128,5 +128,9 @@ Page({
   },
 
   onReady() {
+    setTimeout(function () {
+      // 获取 chart 实例的方式
+      console.log(chart)
+    }, 2000);
   }
 });

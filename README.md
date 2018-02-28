@@ -93,6 +93,16 @@ Page({
 
 发布前，需要在 [https://mp.weixin.qq.com](https://mp.weixin.qq.com) 的“设置”页面，将“基础库最低版本设置”设为 1.9.91。当用户微信版本过低的时候，会提示用户更新。
 
+## FAQ
+
+### 如何获取图表实例？
+
+`echarts.init` 返回的即为图表实例，可以参考 [pages/bar/index.js](/blob/master/pages/bar/index.js) 的写法。
+
+### 为什么不支持 Tooltip？
+
+因为 ECharts 中 tooltip 的实现是使用 HTML 渲染的，小程序不支持 DOM 操作，如果要支持的话，需要重新实现基于 Canvas 的 tooltip。这功能的工作量较大，不过用户反馈的需求也很大，所以接下来准备支持，需要等待一定时间。
+
 ## 暂不支持的功能
 
 ECharts 中的绝大部分功能都支持小程序版本，因此这里仅说明不支持的功能，以及存在的问题。
