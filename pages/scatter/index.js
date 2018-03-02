@@ -55,7 +55,7 @@ function initChart(canvas, width, height) {
 
   var option = {
     color: ["#FF7070", "#60B6E3"],
-    backgroundColor: '#fff',
+    backgroundColor: '#eee',
     xAxis: axisCommon,
     yAxis: axisCommon,
     legend: {
