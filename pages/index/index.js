@@ -68,6 +68,9 @@ Page({
     chartsWithoutImg: [{
       id: 'lazyLoad',
       name: '延迟加载图表'
+    }, {
+      id: 'multiCharts',
+      name: '一个页面中多个图表'
     }]
   },
 

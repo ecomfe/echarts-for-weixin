@@ -20,7 +20,8 @@
     "pages/parallel/index",
     "pages/sankey/index",
     "pages/themeRiver/index",
-    "pages/lazyLoad/index"
+    "pages/lazyLoad/index",
+    "pages/multiCharts/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
