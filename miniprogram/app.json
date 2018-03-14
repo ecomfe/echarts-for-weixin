@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/bar/index",
+    "pages/measureText/index",
+    "pages/line/index",
+    "pages/scatter/index",
+    "pages/sunburst/index",
+    "pages/funnel/index",
+    "pages/radar/index",
+    "pages/gauge/index",
+    "pages/pie/index",
+    "pages/k/index",
+    "pages/heatmap/index",
+    "pages/tree/index",
+    "pages/treemap/index",
+    "pages/map/index",
+    "pages/graph/index",
+    "pages/boxplot/index",
+    "pages/parallel/index",
+    "pages/sankey/index",
+    "pages/themeRiver/index",
+    "pages/lazyLoad/index",
+    "pages/multiCharts/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#eee",
+    "navigationBarBackgroundColor": "#eee",
+    "navigationBarTitleText": "ECharts 图表示例",
+    "navigationBarTextStyle": "black"
+  },
+  "plugins": {
+    "echarts": {
+      "version": "dev",
+      "provider": "wxee40007e9b62f5d0"
+    }
+  }
+}

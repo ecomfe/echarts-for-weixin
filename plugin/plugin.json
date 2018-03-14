@@ -1,0 +1,6 @@
+{
+  "publicComponents": {
+    "ec-canvas": "components/ec-canvas/ec-canvas"
+  },
+  "main": "index.js"
+}
