@@ -1,28 +1,30 @@
 {
-	"description": "ECharts 图表示例",
-	"setting": {
-		"urlCheck": true,
-		"es6": true,
-		"postcss": false,
-		"minified": false,
-		"newFeature": true
-	},
-	"compileType": "miniprogram",
-	"libVersion": "1.9.91",
-	"appid": "wxee40007e9b62f5d0",
-	"projectname": "ECharts%20Demo",
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": []
-		}
-	}
+  "description": "ECharts",
+  "miniprogramRoot": "./miniprogram",
+  "pluginRoot": "./plugin",
+  "compileType": "plugin",
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "postcss": false,
+    "minified": false,
+    "newFeature": true
+  },
+  "libVersion": "1.9.93",
+  "appid": "wxee40007e9b62f5d0",
+  "projectname": "ECharts%20Demo",
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": []
+    }
+  }
 }

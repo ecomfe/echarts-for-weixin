@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "ec-canvas": "plugin://echarts/ec-canvas"
+  },
+  "componentGenerics": {
+    "selectable": true
+  }
+}
