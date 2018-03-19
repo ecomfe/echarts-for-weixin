@@ -32,7 +32,7 @@ Component({
   methods: {
     init: function (callback) {
       const version = wx.version.version.split('.').map(n => parseInt(n, 10));
-      const isValid = version[0] > 1 || (version[0] === 1 && version[1] >= 9)
+      const isValid = version[0] > 1 || (version[0] === 1 && version[1] > 9)
         || (version[0] === 1 && version[1] === 9 && version[2] >= 91);
       if (!isValid) {
         console.error('微信基础库版本过低，需大于等于 1.9.91。'
