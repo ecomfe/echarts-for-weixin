@@ -74,6 +74,9 @@ Page({
     }, {
       id: 'move',
       name: '页面不阻塞滚动'
+    }, {
+      id: 'saveCanvas',
+      name: '保存 Canvas 到本地文件'
     }]
   },
 

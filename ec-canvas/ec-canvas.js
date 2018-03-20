@@ -1,6 +1,8 @@
 import WxCanvas from './wx-canvas';
 import * as echarts from './echarts';
 
+let ctx;
+
 Component({
   properties: {
     canvasId: {
@@ -41,9 +43,9 @@ Component({
         return;
       }
 
-      const ctx = wx.createCanvasContext(this.data.canvasId, this);
+      ctx = wx.createCanvasContext(this.data.canvasId, this);
 
-      const canvas = new WxCanvas(ctx);
+      const canvas = new WxCanvas(ctx, this.data.canvasId);
 
       echarts.setCanvasCreator(() => {
         return canvas;
@@ -58,6 +60,16 @@ Component({
           this.chart = this.data.ec.onInit(canvas, res.width, res.height);
         }
       }).exec();
+    },
+
+    canvasToTempFilePath(opt) {
+      if (!opt.canvasId) {
+        opt.canvasId = this.data.canvasId;
+      }
+      
+      ctx.draw(true, () => {
+        wx.canvasToTempFilePath(opt, this);
+      });
     },
 
     touchStart(e) {

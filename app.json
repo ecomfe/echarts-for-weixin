@@ -22,7 +22,8 @@
     "pages/themeRiver/index",
     "pages/lazyLoad/index",
     "pages/multiCharts/index",
-    "pages/move/index"
+    "pages/move/index",
+    "pages/saveCanvas/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

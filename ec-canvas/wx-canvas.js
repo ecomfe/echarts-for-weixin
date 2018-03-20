@@ -1,7 +1,7 @@
 export default class WxCanvas {
-  constructor(ctx, domId, opts) {
+  constructor(ctx, canvasId) {
     this.ctx = ctx;
-    this.opts = opts || {};
+    this.canvasId = canvasId;
     this.chart = null;
 
     // this._initCanvas(zrender, ctx);
@@ -14,6 +14,14 @@ export default class WxCanvas {
       return this.ctx;
     }
   }
+
+  // canvasToTempFilePath(opt) {
+  //   if (!opt.canvasId) {
+  //     opt.canvasId = this.canvasId;
+  //   }
+
+  //   return wx.canvasToTempFilePath(opt, this);
+  // }
 
   setChart(chart) {
     this.chart = chart;
