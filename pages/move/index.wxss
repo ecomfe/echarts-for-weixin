@@ -1,0 +1,21 @@
+.move-container {
+  width: 100%;
+  min-height: 500px;
+}
+
+#mychart-dom-move-bar {
+  width: 70%;
+  height: 300px;
+  margin: 20px 15%;
+  border: 1px solid red;
+  display: block;
+}
+
+.move-container .text {
+  margin-bottom: 20px;
+}
+
+.move-container text {
+  margin: 10px;
+  display: block;
+}

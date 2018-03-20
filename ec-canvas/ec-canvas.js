@@ -61,7 +61,7 @@ Component({
     },
 
     touchStart(e) {
-      if (this.chart && e.touches.length > 0) {
+      if (!this.data.ec.disableTouch && this.chart && e.touches.length > 0) {
         var touch = e.touches[0];
         this.chart._zr.handler.dispatch('mousedown', {
           zrX: touch.x,
@@ -75,7 +75,7 @@ Component({
     },
 
     touchMove(e) {
-      if (this.chart && e.touches.length > 0) {
+      if (!this.data.ec.disableTouch && this.chart && e.touches.length > 0) {
         var touch = e.touches[0];
         this.chart._zr.handler.dispatch('mousemove', {
           zrX: touch.x,
@@ -85,7 +85,7 @@ Component({
     },
 
     touchEnd(e) {
-      if (this.chart) {
+      if (!this.data.ec.disableTouch && this.chart) {
         const touch = e.changedTouches ? e.changedTouches[0] : {};
         this.chart._zr.handler.dispatch('mouseup', {
           zrX: touch.x,

@@ -21,7 +21,8 @@
     "pages/sankey/index",
     "pages/themeRiver/index",
     "pages/lazyLoad/index",
-    "pages/multiCharts/index"
+    "pages/multiCharts/index",
+    "pages/move/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

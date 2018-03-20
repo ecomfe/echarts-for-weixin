@@ -71,6 +71,9 @@ Page({
     }, {
       id: 'multiCharts',
       name: '一个页面中多个图表'
+    }, {
+      id: 'move',
+      name: '页面不阻塞滚动'
     }]
   },
 

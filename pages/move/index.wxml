@@ -1,0 +1,32 @@
+<!--index.wxml-->
+<view class="move-container">
+  <ec-canvas id="mychart-dom-move-bar" canvas-id="mychart-move-bar" ec="{{ ecBar }}"></ec-canvas>
+  <view class="text">
+    <text>这是一个展示页面不被图表阻塞的例子</text>
+    <text>在图表区域（红色边框）之外可以滚动</text>
+  </view>
+  <view class="text">
+    <text>这是一个展示页面不被图表阻塞的例子</text>
+    <text>在图表区域（红色边框）之外可以滚动</text>
+  </view>
+  <view class="text">
+    <text>这是一个展示页面不被图表阻塞的例子</text>
+    <text>在图表区域（红色边框）之外可以滚动</text>
+  </view>
+  <view class="text">
+    <text>这是一个展示页面不被图表阻塞的例子</text>
+    <text>在图表区域（红色边框）之外可以滚动</text>
+  </view>
+  <view class="text">
+    <text>这是一个展示页面不被图表阻塞的例子</text>
+    <text>在图表区域（红色边框）之外可以滚动</text>
+  </view>
+  <view class="text">
+    <text>这是一个展示页面不被图表阻塞的例子</text>
+    <text>在图表区域（红色边框）之外可以滚动</text>
+  </view>
+  <view class="text">
+    <text>这是一个展示页面不被图表阻塞的例子</text>
+    <text>在图表区域（红色边框）之外可以滚动</text>
+  </view>
+</view>
