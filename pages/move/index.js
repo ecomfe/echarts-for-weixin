@@ -21,9 +21,6 @@ Page({
           height: height
         });
         canvas.setChart(barChart);
-
-        // 将 barChart 绑定到 this，以供其他函数访问
-        this.barChart = barChart;
         barChart.setOption(getBarOption());
 
         return barChart;
