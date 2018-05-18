@@ -56,8 +56,15 @@ Component({
         if (typeof callback === 'function') {
           this.chart = callback(canvas, res.width, res.height);
         }
-        else if (this.data.ec && this.data.ec.onInit) {
+        else if (this.data.ec && typeof this.data.ec.onInit === 'function') {
           this.chart = this.data.ec.onInit(canvas, res.width, res.height);
+        }
+        else {
+          this.triggerEvent('init', {
+            canvas: canvas,
+            width: res.width,
+            height: res.height
+          });
         }
       }).exec();
     },
@@ -66,7 +73,7 @@ Component({
       if (!opt.canvasId) {
         opt.canvasId = this.data.canvasId;
       }
-      
+
       ctx.draw(true, () => {
         wx.canvasToTempFilePath(opt, this);
       });
