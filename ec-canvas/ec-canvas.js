@@ -2,6 +2,7 @@ import WxCanvas from './wx-canvas';
 import * as echarts from './echarts';
 
 let ctx;
+let lastMoveTime = 0;
 
 Component({
   properties: {
@@ -88,6 +89,11 @@ Component({
 
     touchMove(e) {
       if (this.chart && e.touches.length > 0) {
+        if (this.data.ec.throttleTouch) {
+          const currMoveTime = Date.now();
+          if (currMoveTime - lastMoveTime < 240) return;
+          lastMoveTime = currMoveTime;
+        }
         var touch = e.touches[0];
         this.chart._zr.handler.dispatch('mousemove', {
           zrX: touch.x,
