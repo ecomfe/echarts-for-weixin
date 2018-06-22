@@ -89,9 +89,10 @@ Component({
 
     touchMove(e) {
       if (this.chart && e.touches.length > 0) {
-        if (this.data.ec.throttleTouch) {
+        const { throttleTouch } = this.data.ec;
+        if (throttleTouch) {
           const currMoveTime = Date.now();
-          if (currMoveTime - lastMoveTime < 240) return;
+          if (currMoveTime - lastMoveTime < throttleTouch) return;
           lastMoveTime = currMoveTime;
         }
         var touch = e.touches[0];

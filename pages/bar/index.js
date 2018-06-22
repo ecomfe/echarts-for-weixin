@@ -123,7 +123,8 @@ Page({
   },
   data: {
     ec: {
-      onInit: initChart
+      onInit: initChart,
+      throttleTouch: 240
     }
   },
 
