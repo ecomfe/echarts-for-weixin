@@ -25,7 +25,10 @@ function initChart(canvas, width, height) {
     grid: {
       containLabel: true
     },
-
+    tooltip: {
+      show: true,
+      trigger: 'axis'
+    },
     xAxis: {
       type: 'category',
       boundaryGap: false,
