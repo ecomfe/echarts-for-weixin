@@ -11761,6 +11761,16 @@ function getAttribute(dom, key) {
         : dom[key];
 }
 
+function getRenderMode(renderModeOption) {
+    if (renderModeOption === 'auto') {
+        // Using html when `document` exists, use richText otherwise
+        return env$1.domSupported ? 'html' : 'richText';
+    }
+    else {
+        return renderModeOption || 'html';
+    }
+}
+
 /*
 * Licensed to the Apache Software Foundation (ASF) under one
 * or more contributor license agreements.  See the NOTICE file
@@ -22739,7 +22749,8 @@ var dataFormatMixin = {
         var itemOpt = data.getRawDataItem(dataIndex);
         var color = data.getItemVisual(dataIndex, 'color');
         var tooltipModel = this.ecModel.getComponent('tooltip');
-        var renderMode = tooltipModel && tooltipModel.get('renderMode') || 'html';
+        var renderModeOption = tooltipModel && tooltipModel.get('renderMode');
+        var renderMode = getRenderMode(renderModeOption);
 
         return {
             componentType: this.mainType,
@@ -23497,7 +23508,7 @@ var SeriesModel = ComponentModel.extend({
                     return;
                 }
                 var dimType = dimInfo.type;
-                var markName = series.seriesIndex + 'at' + markerId;
+                var markName = 'sub' + series.seriesIndex + 'at' + markerId;
                 var dimHead = getTooltipMarker({
                     color: color,
                     type: 'subItem',
@@ -23525,15 +23536,22 @@ var SeriesModel = ComponentModel.extend({
                 }
             }
 
+            var newLine = vertially ? (isRichText ? '\n' : '<br/>') : '';
+            var content = newLine + result.join(newLine || ', ');
             return {
                 renderMode: renderMode,
-                content: (vertially ? isRichText : '') + result.join(vertially ? isRichText : ', '),
+                content: content,
                 style: markers
             };
         }
 
         function formatSingleValue(val) {
-            return encodeHTML(addCommas(val));
+            // return encodeHTML(addCommas(val));
+            return {
+                renderMode: renderMode,
+                content: encodeHTML(addCommas(val)),
+                style: markers
+            };
         }
 
         var data = this.getData();
@@ -23554,6 +23572,7 @@ var SeriesModel = ComponentModel.extend({
             : tooltipDimLen
             ? formatSingleValue(retrieveRawValue(data, dataIndex, tooltipDims[0]))
             : formatSingleValue(isValueArr ? value[0] : value);
+        var content = formattedValue.content;
 
         var markName = series.seriesIndex + 'at' + markerId;
         var colorEl = getTooltipMarker({
@@ -23579,10 +23598,10 @@ var SeriesModel = ComponentModel.extend({
         var html = !multipleSeries
             ? seriesName + colorStr
                 + (name
-                    ? encodeHTML(name) + ': ' + formattedValue
-                    : formattedValue
+                    ? encodeHTML(name) + ': ' + content
+                    : content
                 )
-            : colorStr + seriesName + formattedValue;
+            : colorStr + seriesName + content;
 
         return {
             html: html,
@@ -73287,12 +73306,24 @@ TooltipRichContent.prototype = {
         while (startId >= 0) {
             var endId = text.indexOf(suffix);
             var name = text.substr(startId + prefix.length, endId - startId - prefix.length);
-            markers['marker' + name] = {
-                textWidth: 12,
-                textHeight: 12,
-                textBorderRadius: 6,
-                textBackgroundColor: markerRich[name]
-            };
+            if (name.indexOf('sub') > -1) {
+                markers['marker' + name] = {
+                    textWidth: 4,
+                    textHeight: 4,
+                    textBorderRadius: 2,
+                    textBackgroundColor: markerRich[name],
+                    // TODO: textOffset is not implemented for rich text
+                    textOffset: [3, 0]
+                };
+            }
+            else {
+                markers['marker' + name] = {
+                    textWidth: 10,
+                    textHeight: 10,
+                    textBorderRadius: 5,
+                    textBackgroundColor: markerRich[name]
+                };
+            }
 
             text = text.substr(endId + 1);
             startId = text.indexOf('{marker');
@@ -73412,14 +73443,7 @@ extendComponentView({
 
         var tooltipModel = ecModel.getComponent('tooltip');
         var renderMode = tooltipModel.get('renderMode');
-        this._renderMode = 'html';
-        if (renderMode === 'auto') {
-            // using html when `document` exists, use richText otherwise
-            this._renderMode = env$1.domSupported ? 'html' : 'richText';
-        }
-        else {
-            this._renderMode = renderMode || this._renderMode;
-        }
+        this._renderMode = getRenderMode(renderMode);
 
         var tooltipContent;
         if (this._renderMode === 'html') {
