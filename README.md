@@ -54,7 +54,7 @@
   <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
 </view>
 ```
-
+注意此处的.container,新建小程序项目后，其中app.wxss中默认自动生成的此class与本demo中的可能不一致，导致chart不能正常显示，只显示空白。若不想更改app.wxss中的.container，可将demo中的.container拷贝到需要使用chart的页面的wxss文件中重命名使用。
 其中 `ec` 是一个我们在 `index.js` 中定义的对象，它使得图表能够在页面加载后被初始化并设置。`index.js` 的结构如下：
 
 ```js
@@ -86,7 +86,6 @@ Page({
 完整的例子请参见 [ecomfe/echarts-for-weixin](https://github.com/ecomfe/echarts-for-weixin) 项目。
 
 ## FAQ
-
 ### 如何获取图表实例？
 
 `echarts.init` 返回的即为图表实例，可以参考 [pages/bar/index.js](/blob/master/pages/bar/index.js) 的写法。
