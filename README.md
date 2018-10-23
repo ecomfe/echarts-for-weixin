@@ -105,6 +105,13 @@ Page({
 
 具体使用方法和 ECharts 相同，例子参见 `pages/line/index.js`。
 
+### 文件太大怎么办？
+
+本项目默认提供的 ECharts 文件是最新版本的包含所有组件文件，为了便于开发，提供的是未压缩的版本。远程调试或预览可以下载 [echarts.min.js](https://github.com/apache/incubator-echarts/blob/master/dist/echarts.min.js) 压缩版本。
+
+发布时，如果对文件大小要求更高，可以在 [ECharts 在线定制](http://echarts.baidu.com/builder.html)网页下载仅包含必要组件的包，并且选择压缩。
+
+下载的文件放在 `ec-canvas/echarts.js`，**注意一定需要重命名为 `echarts.js`**。
 
 ## 微信版本要求
 
