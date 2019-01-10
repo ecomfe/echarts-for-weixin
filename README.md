@@ -54,7 +54,9 @@
   <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
 </view>
 ```
-注意此处的.container,新建小程序项目后，其中app.wxss中默认自动生成的此class与本demo中的可能不一致，导致chart不能正常显示，只显示空白。若不想更改app.wxss中的.container，可将demo中的.container拷贝到需要使用chart的页面的wxss文件中重命名使用。
+
+> 注意此处的 `.container`，新建小程序项目后，其中 `app.wxss` 中默认自动生成的此 class 与本 demo 中的可能不一致，导致图表不能正常显示，只显示空白。请注意参考 `app.wxss` 修改样式，保证图表的初始化的时候是有宽度和高度的。
+
 其中 `ec` 是一个我们在 `index.js` 中定义的对象，它使得图表能够在页面加载后被初始化并设置。`index.js` 的结构如下：
 
 ```js
