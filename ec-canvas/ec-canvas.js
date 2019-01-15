@@ -90,6 +90,7 @@ Component({
           zrX: touch.x,
           zrY: touch.y
         });
+        this.chart._zr.handler.proxy.processGesture(wrapTouch(e), 'start');
       }
     },
 
@@ -100,6 +101,7 @@ Component({
           zrX: touch.x,
           zrY: touch.y
         });
+        this.chart._zr.handler.proxy.processGesture(wrapTouch(e), 'change');
       }
     },
 
@@ -114,7 +116,17 @@ Component({
           zrX: touch.x,
           zrY: touch.y
         });
+        this.chart._zr.handler.proxy.processGesture(wrapTouch(e), 'end');
       }
     }
   }
 });
+
+function wrapTouch(event) {
+  for (let i = 0; i < event.touches.length; ++i) {
+    const touch = event.touches[i];
+    touch.offsetX = touch.x;
+    touch.offsetY = touch.y;
+  }
+  return event;
+}
