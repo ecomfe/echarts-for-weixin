@@ -82,41 +82,44 @@ Component({
     touchStart(e) {
       if (this.chart && e.touches.length > 0) {
         var touch = e.touches[0];
-        this.chart._zr.handler.dispatch('mousedown', {
+        var handler = this.chart.getZr().handler;
+        handler.dispatch('mousedown', {
           zrX: touch.x,
           zrY: touch.y
         });
-        this.chart._zr.handler.dispatch('mousemove', {
+        handler.dispatch('mousemove', {
           zrX: touch.x,
           zrY: touch.y
         });
-        this.chart._zr.handler.proxy.processGesture(wrapTouch(e), 'start');
+        handler.processGesture(wrapTouch(e), 'start');
       }
     },
 
     touchMove(e) {
       if (this.chart && e.touches.length > 0) {
         var touch = e.touches[0];
-        this.chart._zr.handler.dispatch('mousemove', {
+        var handler = this.chart.getZr().handler;
+        handler.dispatch('mousemove', {
           zrX: touch.x,
           zrY: touch.y
         });
-        this.chart._zr.handler.proxy.processGesture(wrapTouch(e), 'change');
+        handler.processGesture(wrapTouch(e), 'change');
       }
     },
 
     touchEnd(e) {
       if (this.chart) {
         const touch = e.changedTouches ? e.changedTouches[0] : {};
-        this.chart._zr.handler.dispatch('mouseup', {
+        var handler = this.chart.getZr().handler;
+        handler.dispatch('mouseup', {
           zrX: touch.x,
           zrY: touch.y
         });
-        this.chart._zr.handler.dispatch('click', {
+        handler.dispatch('click', {
           zrX: touch.x,
           zrY: touch.y
         });
-        this.chart._zr.handler.proxy.processGesture(wrapTouch(e), 'end');
+        handler.processGesture(wrapTouch(e), 'end');
       }
     }
   }

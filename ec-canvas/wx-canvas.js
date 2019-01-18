@@ -87,7 +87,7 @@ export default class WxCanvas {
     eventNames.forEach(name => {
       this.event[name.wxName] = e => {
         const touch = e.touches[0];
-        this.chart._zr.handler.dispatch(name.ecName, {
+        this.chart.getZr().handler.dispatch(name.ecName, {
           zrX: name.wxName === 'tap' ? touch.clientX : touch.x,
           zrY: name.wxName === 'tap' ? touch.clientY : touch.y
         });
