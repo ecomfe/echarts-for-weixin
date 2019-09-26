@@ -31,6 +31,12 @@ Component({
     }
   },
 
+  pageLifetimes: {
+    resize(res) {
+      this.init();  // 解决小程序横屏的问题。
+    }
+  },
+  
   methods: {
     init: function (callback) {
       const version = wx.version.version.split('.').map(n => parseInt(n, 10));
