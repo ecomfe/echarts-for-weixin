@@ -26,13 +26,23 @@ Component({
       return;
     }
 
+    this._isReady = true;
     if (!this.data.ec.lazyLoad) {
       this.init();
+    } else { // 针对lazyLoad的 init 必须在ready之后
+      if (this._pendingInitCb) {
+        this.init(this._pendingInitCb);
+      }
     }
   },
 
   methods: {
     init: function (callback) {
+      if (!this._isReady) {
+        this._pendingInitCb = callback;
+        return;
+      }
+
       const version = wx.version.version.split('.').map(n => parseInt(n, 10));
       const isValid = version[0] > 1 || (version[0] === 1 && version[1] > 9)
         || (version[0] === 1 && version[1] === 9 && version[2] >= 91);
