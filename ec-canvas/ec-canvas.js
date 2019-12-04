@@ -49,7 +49,6 @@ Component({
         .select('.ec-canvas')
         .fields({ node: true, size: true })
         .exec(res => {
-          console.log('获取到的res', res)
           const canvasNode = res[0].node
 
           const canvasDpr = wx.getSystemInfoSync().pixelRatio
@@ -79,11 +78,6 @@ Component({
               dpr: canvasDpr
             })
           }
-
-          // setTimeout(() => {
-          //   console.log(canvasNode)
-          //   console.log("xxxx", canvasNode.width, canvasNode.height)
-          // }, 1000);
         })
 
       // ctx = wx.createCanvasContext(this.data.canvasId, this);

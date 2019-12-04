@@ -5,7 +5,8 @@ const app = getApp();
 function initChart(canvas, width, height) {
   const chart = echarts.init(canvas, null, {
     width: width,
-    height: height
+    height: height,
+    devicePixelRatio: wx.getSystemInfoSync().pixelRatio
   });
   canvas.setChart(chart);
 

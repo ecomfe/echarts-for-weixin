@@ -18,7 +18,8 @@ Page({
       onInit: function (canvas, width, height) {
         const barChart = echarts.init(canvas, null, {
           width: width,
-          height: height
+          height: height,
+          devicePixelRatio: wx.getSystemInfoSync().pixelRatio
         });
         canvas.setChart(barChart);
         barChart.setOption(getBarOption());
