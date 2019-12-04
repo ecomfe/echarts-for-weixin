@@ -62,16 +62,16 @@
 ```js
 function initChart(canvas, width, height, dpr) {
   const chart = echarts.init(canvas, null, {
-    width: width,
-    height: height,
-    devicePixelRatio: dpr || wx.getSystemInfoSync().pixelRatio
+    width: width, // 画布的宽度
+    height: height, // 画布的高度
+    devicePixelRatio: dpr || wx.getSystemInfoSync().pixelRatio  // 画布的高度
   });
   canvas.setChart(chart);
 
   var option = {
     ...
   };
-  chart.setOption(option);
+  chart.setOption(option);  // 传递数据
   return chart;
 }
 
