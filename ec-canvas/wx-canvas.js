@@ -1,11 +1,12 @@
 export default class WxCanvas {
-  constructor(ctx, canvasId) {
+  constructor(ctx, canvasNode, canvasId) {
     this.ctx = ctx;
     this.canvasId = canvasId;
     this.chart = null;
+    this.canvasNode = canvasNode;
 
     // this._initCanvas(zrender, ctx);
-    this._initStyle(ctx);
+    // this._initStyle(ctx);
     this._initEvent();
   }
 
@@ -27,7 +28,7 @@ export default class WxCanvas {
     this.chart = chart;
   }
 
-  attachEvent () {
+  attachEvent() {
     // noop
   }
 
@@ -47,17 +48,18 @@ export default class WxCanvas {
   }
 
   _initStyle(ctx) {
-    var styles = ['fillStyle', 'strokeStyle', 'globalAlpha', 
+    var styles = ['fillStyle', 'strokeStyle', 'globalAlpha',
       'textAlign', 'textBaseAlign', 'shadow', 'lineWidth',
       'lineCap', 'lineJoin', 'lineDash', 'miterLimit', 'fontSize'];
 
     styles.forEach(style => {
       Object.defineProperty(ctx, style, {
         set: value => {
-          if (style !== 'fillStyle' && style !== 'strokeStyle' 
+          if (style !== 'fillStyle' && style !== 'strokeStyle'
             || value !== 'none' && value !== null
           ) {
-            ctx['set' + style.charAt(0).toUpperCase() + style.slice(1)](value);
+            ctx[style](value)
+            // ctx['set' + style.charAt(0).toUpperCase() + style.slice(1)](value);
           }
         }
       });
@@ -93,5 +95,19 @@ export default class WxCanvas {
         });
       };
     });
+  }
+
+  set width(w) {
+    this.canvasNode.width = w
+  }
+  set height(h) {
+    this.canvasNode.height = h
+  }
+
+  get width() {
+    return this.canvasNode.width
+  }
+  get height() {
+    return this.canvasNode.height
   }
 }

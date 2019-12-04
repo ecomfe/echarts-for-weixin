@@ -43,30 +43,70 @@ Component({
         return;
       }
 
-      ctx = wx.createCanvasContext(this.data.canvasId, this);
+      // 使用新方式获取canvas
+      const query = wx.createSelectorQuery().in(this)
+      query
+        .select('.ec-canvas')
+        .fields({ node: true, size: true })
+        .exec(res => {
+          console.log('获取到的res', res)
+          const canvasNode = res[0].node
 
-      const canvas = new WxCanvas(ctx, this.data.canvasId);
+          const canvasDpr = wx.getSystemInfoSync().pixelRatio
+          const canvasWidth = res[0].width
+          const canvasHeight = res[0].height
 
-      echarts.setCanvasCreator(() => {
-        return canvas;
-      });
+          // canvasNode.width = canvasWidth
+          // canvasNode.height = canvasHeight
 
-      var query = wx.createSelectorQuery().in(this);
-      query.select('.ec-canvas').boundingClientRect(res => {
-        if (typeof callback === 'function') {
-          this.chart = callback(canvas, res.width, res.height);
-        }
-        else if (this.data.ec && typeof this.data.ec.onInit === 'function') {
-          this.chart = this.data.ec.onInit(canvas, res.width, res.height);
-        }
-        else {
-          this.triggerEvent('init', {
-            canvas: canvas,
-            width: res.width,
-            height: res.height
-          });
-        }
-      }).exec();
+          const ctx = canvasNode.getContext('2d')
+          console.log("基本数据", canvasWidth, canvasHeight, canvasDpr)
+
+          const canvas = new WxCanvas(ctx, canvasNode, this.data.canvasId)
+          echarts.setCanvasCreator(() => {
+            return canvas
+          })
+
+          if (typeof callback === 'function') {
+            this.chart = callback(canvas, canvasWidth, canvasHeight, canvasDpr)
+          } else if (this.data.ec && typeof this.data.ec.onInit === 'function') {
+            this.chart = this.data.ec.onInit(canvas, canvasWidth, canvasHeight, canvasDpr)
+          } else {
+            this.triggerEvent('init', {
+              canvas: canvas,
+              width: canvasWidth,
+              height: canvasHeight,
+              dpr: canvasDpr
+            })
+          }
+
+          // setTimeout(() => {
+          //   console.log(canvasNode)
+          //   console.log("xxxx", canvasNode.width, canvasNode.height)
+          // }, 1000);
+        })
+
+      // ctx = wx.createCanvasContext(this.data.canvasId, this);
+      // const canvas = new WxCanvas(ctx, this.data.canvasId);
+      // echarts.setCanvasCreator(() => {
+      //   return canvas;
+      // });
+      // var query = wx.createSelectorQuery().in(this);
+      // query.select('.ec-canvas').boundingClientRect(res => {
+      //   if (typeof callback === 'function') {
+      //     this.chart = callback(canvas, res.width, res.height);
+      //   }
+      //   else if (this.data.ec && typeof this.data.ec.onInit === 'function') {
+      //     this.chart = this.data.ec.onInit(canvas, res.width, res.height);
+      //   }
+      //   else {
+      //     this.triggerEvent('init', {
+      //       canvas: canvas,
+      //       width: res.width,
+      //       height: res.height
+      //     });
+      //   }
+      // }).exec();
     },
 
     canvasToTempFilePath(opt) {

@@ -2,10 +2,11 @@ import * as echarts from '../../ec-canvas/echarts';
 
 let chart = null;
 
-function initChart(canvas, width, height) {
+function initChart(canvas, width, height, dpr) {
   chart = echarts.init(canvas, null, {
     width: width,
-    height: height
+    height: height,
+    devicePixelRatio: dpr
   });
   canvas.setChart(chart);
 
