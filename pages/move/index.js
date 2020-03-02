@@ -15,10 +15,11 @@ Page({
       // 就将 disableTouch 设为 true
       // disableTouch: true,
 
-      onInit: function (canvas, width, height) {
+      onInit: function (canvas, width, height, dpr) {
         const barChart = echarts.init(canvas, null, {
           width: width,
-          height: height
+          height: height,
+          devicePixelRatio: dpr // new
         });
         canvas.setChart(barChart);
         barChart.setOption(getBarOption());

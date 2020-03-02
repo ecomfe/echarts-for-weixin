@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/bar/index",
     "pages/measureText/index",
@@ -25,11 +25,12 @@
     "pages/move/index",
     "pages/saveCanvas/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "backgroundColor": "#eee",
     "navigationBarBackgroundColor": "#eee",
     "navigationBarTitleText": "ECharts 图表示例",
-    "navigationBarTextStyle":"black"
-  }
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
 }

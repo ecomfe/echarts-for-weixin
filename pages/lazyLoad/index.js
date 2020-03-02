@@ -122,7 +122,7 @@ Page({
   data: {
     ec: {
       // 将 lazyLoad 设为 true 后，需要手动初始化图表
-      lazyLoad: true 
+      lazyLoad: true
     },
     isLoaded: false,
     isDisposed: false
@@ -130,12 +130,13 @@ Page({
 
   // 点击按钮后初始化图表
   init: function () {
-    this.ecComponent.init((canvas, width, height) => {
+    this.ecComponent.init((canvas, width, height, dpr) => {
       // 获取组件的 canvas、width、height 后的回调函数
       // 在这里初始化图表
       const chart = echarts.init(canvas, null, {
         width: width,
-        height: height
+        height: height,
+        devicePixelRatio: dpr // new
       });
       setOption(chart);
 

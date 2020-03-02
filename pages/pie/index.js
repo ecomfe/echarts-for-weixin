@@ -2,10 +2,11 @@ import * as echarts from '../../ec-canvas/echarts';
 
 const app = getApp();
 
-function initChart(canvas, width, height) {
+function initChart(canvas, width, height, dpr) {
   const chart = echarts.init(canvas, null, {
     width: width,
-    height: height
+    height: height,
+    devicePixelRatio: dpr // new
   });
   canvas.setChart(chart);
 
@@ -69,7 +70,7 @@ Page({
   onReady() {
   },
 
-  echartInit (e) {
-    initChart(e.detail.canvas, e.detail.width, e.detail.height);
+  echartInit(e) {
+    initChart(e.detail.canvas, e.detail.width, e.detail.height, e.detail.dpr);
   }
 });
