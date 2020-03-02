@@ -60,10 +60,11 @@
 其中 `ec` 是一个我们在 `index.js` 中定义的对象，它使得图表能够在页面加载后被初始化并设置。`index.js` 的结构如下：
 
 ```js
-function initChart(canvas, width, height) {
+function initChart(canvas, width, height, dpr) {
   const chart = echarts.init(canvas, null, {
     width: width,
-    height: height
+    height: height,
+    devicePixelRatio: dpr // 像素
   });
   canvas.setChart(chart);
 
@@ -113,6 +114,8 @@ Page({
 发布时，如果对文件大小要求更高，可以在 [ECharts 在线定制](http://echarts.baidu.com/builder.html)网页下载仅包含必要组件的包，并且选择压缩。
 
 下载的文件放在 `ec-canvas/echarts.js`，**注意一定需要重命名为 `echarts.js`**。
+
+此外，还可考虑使用微信小程序的[分包策略](https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages/independent.html)
 
 ## 微信版本要求
 
