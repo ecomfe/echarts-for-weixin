@@ -127,9 +127,9 @@ Page({
 
 ### Canvas 2d 版本要求
 
-最新版的 ECharts 微信小程序支持微信 Canvas 2d，在基础库版本 >= 2.9.0 的情况下默认使用新的 Canvas 2d。
+最新版的 ECharts 微信小程序支持微信 Canvas 2d，当用户的基础库版本 >= 2.9.0 且没有设置 `force-use-old-canvas="true"` 的情况下，使用新的 Canvas 2d（默认）。
 
-使用新的 Canvas 2d 可以减少渲染 bug，强烈建议开启。
+使用新的 Canvas 2d 可以提升渲染性能，解决非同层渲染问题，强烈建议开启
 
 如果仍需使用旧版 Canvas，使用方法如下：
 

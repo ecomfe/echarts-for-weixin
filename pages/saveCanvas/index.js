@@ -136,13 +136,14 @@ Page({
   },
 
   save() {
-    // 保存图片到临时的本地文件
     const ecComponent = this.selectComponent('#mychart-dom-save');
+
+    // 先保存图片到临时的本地文件，然后存入系统相册
     ecComponent.canvasToTempFilePath({
       success: res => {
         console.log("tempFilePath:", res.tempFilePath)
 
-        // 临时文件不等于存入系统相册, 如果需要存入系统相册，e.g:
+        // 存入系统相册
         wx.saveImageToPhotosAlbum({
           filePath: res.tempFilePath || '',
           success: res => {
