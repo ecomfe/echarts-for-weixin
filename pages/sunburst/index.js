@@ -121,8 +121,7 @@ function initChart(canvas, width, height, dpr) {
         color: '#ddd',
         borderWidth: 2
       }
-    },
-    silent: true
+    }
   };
 
 

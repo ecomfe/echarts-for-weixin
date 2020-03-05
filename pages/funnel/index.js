@@ -15,7 +15,7 @@ function initChart(canvas, width, height, dpr) {
     color: ["#37A2DA", "#32C5E9", "#67E0E3", "#91F2DE", "#FFDB5C", "#FF9F7F"],
     tooltip: {
       trigger: 'item',
-      formatter: "{a} <br/>{b} : {c}%"
+      formatter: "{a}\n{b} : {c}%"
     },
     legend: {
       orient: 'vertical',

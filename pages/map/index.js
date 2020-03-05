@@ -15,7 +15,8 @@ function initChart(canvas, width, height, dpr) {
 
   const option = {
     tooltip: {
-      trigger: 'item'
+      trigger: 'item',
+      formatter: '{b}: {c}'
     },
 
     visualMap: {

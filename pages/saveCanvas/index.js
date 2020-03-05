@@ -143,15 +143,15 @@ Page({
         console.log("tempFilePath:", res.tempFilePath)
 
         // 临时文件不等于存入系统相册, 如果需要存入系统相册，e.g:
-        // wx.saveImageToPhotosAlbum({
-        //   filePath: res.tempFilePath || '',
-        //   success: res => {
-        //     console.log("success", res)
-        //   },
-        //   fail: res => {
-        //     console.log("fail", res)
-        //   }
-        // })
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath || '',
+          success: res => {
+            console.log("success", res)
+          },
+          fail: res => {
+            console.log("fail", res)
+          }
+        })
       },
       fail: res => console.log(res)
     });

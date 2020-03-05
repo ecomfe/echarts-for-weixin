@@ -107,9 +107,15 @@ Page({
 
 具体使用方法和 ECharts 相同，例子参见 `pages/line/index.js`。
 
+目前一个已知的 bug 是，有些图表的 tooltip 会显示 `<br/>` 而非换行符。这一问题将在之后修复，暂时碰到这一问题时，开发者可以通过在 formatter 中使用 `\n` 作为换行。
+
+### 如何保存为图片？
+
+参见 `pages/saveCanvas` 的例子。
+
 ### 文件太大怎么办？
 
-本项目默认提供的 ECharts 文件是最新版本的包含所有组件文件，为了便于开发，提供的是未压缩的版本。远程调试或预览可以下载 [echarts.min.js](https://github.com/apache/incubator-echarts/blob/master/dist/echarts.min.js) 压缩版本。
+本项目默认提供的 ECharts 文件是最新版本的包含所有组件文件。可以下载不同版本的 [ECharts](https://github.com/apache/incubator-echarts/blob/master/dist/) 进行替换。建议调试时使用未压缩版本，发布时使用压缩版本，否则文件会太大无法发布。
 
 发布时，如果对文件大小要求更高，可以在 [ECharts 在线定制](http://echarts.baidu.com/builder.html)网页下载仅包含必要组件的包，并且选择压缩。
 
@@ -118,6 +124,20 @@ Page({
 此外，还可考虑使用微信小程序的[分包策略](https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages/independent.html)
 
 ## 微信版本要求
+
+### Canvas 2d 版本要求
+
+最新版的 ECharts 微信小程序支持微信 Canvas 2d，在基础库版本 >= 2.9.0 的情况下默认使用新的 Canvas 2d。
+
+使用新的 Canvas 2d 可以减少渲染 bug，强烈建议开启。
+
+如果仍需使用旧版 Canvas，使用方法如下：
+
+```html
+<ec-canvas id="xxx" canvas-id="xxx" ec="{{ ec }}" force-use-old-canvas="true"></ec-canvas>
+```
+
+### 最低版本要求
 
 支持微信版本 >= 6.6.3，对应基础库版本 >= 1.9.91。尽可能使用更高版本的基础库版本。
 
