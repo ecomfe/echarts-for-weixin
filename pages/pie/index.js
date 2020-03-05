@@ -21,7 +21,7 @@ function initChart(canvas, width, height, dpr) {
       },
       type: 'pie',
       center: ['50%', '50%'],
-      radius: [0, '60%'],
+      radius: ['40%', '60%'],
       data: [{
         value: 55,
         name: '北京'
@@ -37,15 +37,7 @@ function initChart(canvas, width, height, dpr) {
       }, {
         value: 38,
         name: '上海'
-      },
-      ],
-      itemStyle: {
-        emphasis: {
-          shadowBlur: 10,
-          shadowOffsetX: 0,
-          shadowColor: 'rgba(0, 2, 2, 0.3)'
-        }
-      }
+      }]
     }]
   };
 
@@ -64,13 +56,10 @@ Page({
   },
   data: {
     ec: {
+      onInit: initChart
     }
   },
 
   onReady() {
-  },
-
-  echartInit(e) {
-    initChart(e.detail.canvas, e.detail.width, e.detail.height, e.detail.dpr);
   }
 });

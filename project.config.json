@@ -8,7 +8,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.5.1",
+	"libVersion": "2.10.2",
 	"appid": "wxee40007e9b62f5d0",
 	"projectname": "ECharts%20Demo",
 	"simulatorType": "wechat",

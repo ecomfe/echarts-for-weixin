@@ -13,7 +13,6 @@ function initChart(canvas, width, height, dpr) {
   var option = {
     backgroundColor: "#ffffff",
     color: ["#37A2DA", "#FF9F7F"],
-    tooltip: {},
     xAxis: {
       show: false
     },
