@@ -50,6 +50,21 @@ Component({
   },
 
   ready: function () {
+    // Disable prograssive because drawImage doesn't support DOM as parameter
+    // See https://developers.weixin.qq.com/miniprogram/dev/api/canvas/CanvasContext.drawImage.html
+    echarts.registerPreprocessor(option => {
+      if (option && option.series) {
+        if (option.series.length > 0) {
+          option.series.forEach(series => {
+            series.progressive = 0;
+          });
+        }
+        else if (typeof option.series === 'object') {
+          option.series.progressive = 0;
+        }
+      }
+    });
+
     if (!this.data.ec) {
       console.warn('组件需绑定 ec 变量，例：<ec-canvas id="mychart-dom-bar" '
         + 'canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>');
@@ -169,7 +184,7 @@ Component({
             wx.canvasToTempFilePath(opt)
           })
       } else {
-        // 旧的  
+        // 旧的
         if (!opt.canvasId) {
           opt.canvasId = this.data.canvasId;
         }
