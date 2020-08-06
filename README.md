@@ -22,7 +22,7 @@
 
 ## 引入组件
 
-微信小程序的项目创建可以参见[微信公众平台官方文档](https://mp.weixin.qq.com/debug/wxadoc/dev/quickstart/basic/getting-started.html)。
+微信小程序的项目创建可以参见[微信公众平台官方文档](https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/)。
 
 在创建项目之后，可以将下载的 [ecomfe/echarts-for-weixin](https://github.com/ecomfe/echarts-for-weixin) 项目完全替换新建的项目，然后将修改代码；或者仅拷贝 `ec-canvas` 目录到新建的项目下，然后做相应的调整。
 
