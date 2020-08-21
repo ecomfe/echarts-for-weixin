@@ -1,6 +1,6 @@
-# 在微信小程序中使用 ECharts
+# 在微信小程序中使用 Apache ECharts (incubating)
 
-本项目是 ECharts 的微信小程序版本，以及使用的示例。
+本项目是 [Apache ECharts (incubating)](https://github.com/apache/incubator-echarts) 的微信小程序版本，以及使用的示例。
 
 开发者可以通过熟悉的 ECharts 配置方式，快速开发图表，满足各种可视化需求。
 
