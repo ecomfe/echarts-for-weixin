@@ -55,7 +55,6 @@ function initChart(canvas, width, height, dpr) {
   };
 
   var option = {
-    color: ["#FF7070", "#60B6E3"],
     backgroundColor: '#eee',
     xAxis: axisCommon,
     yAxis: axisCommon,

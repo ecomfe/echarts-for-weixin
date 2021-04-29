@@ -155,8 +155,7 @@ function initChart(canvas, width, height, dpr) {
           }]
         },
       ],
-      leafDepth: 2,
-      color: ["#FFA54F", "#FF8040", "#FFD39B", "#FF4500"]
+      leafDepth: 2
     }]
   };
 

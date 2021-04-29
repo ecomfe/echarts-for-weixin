@@ -11,7 +11,6 @@ function initChart(canvas, width, height, dpr) {
   canvas.setChart(chart);
 
   var option = {
-    color: ['#37a2da'],
     parallelAxis: [
       { dim: 0, name: 'Price' },
       { dim: 1, name: 'Net Weight' },

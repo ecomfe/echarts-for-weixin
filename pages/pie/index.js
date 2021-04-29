@@ -12,7 +12,6 @@ function initChart(canvas, width, height, dpr) {
 
   var option = {
     backgroundColor: "#ffffff",
-    color: ["#37A2DA", "#32C5E9", "#67E0E3", "#91F2DE", "#FFDB5C", "#FF9F7F"],
     series: [{
       label: {
         normal: {
@@ -21,7 +20,7 @@ function initChart(canvas, width, height, dpr) {
       },
       type: 'pie',
       center: ['50%', '50%'],
-      radius: ['40%', '60%'],
+      radius: ['20%', '40%'],
       data: [{
         value: 55,
         name: '北京'
