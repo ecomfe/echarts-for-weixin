@@ -77,12 +77,20 @@ Component({
   },
 
   methods: {
-    init: function (callback) {
+    async init (callback) {
       const version = wx.getSystemInfoSync().SDKVersion
 
       const canUseNewCanvas = compareVersion(version, '2.9.0') >= 0;
       const forceUseOldCanvas = this.data.forceUseOldCanvas;
-      const isUseNewCanvas = canUseNewCanvas && !forceUseOldCanvas;
+      // const isUseNewCanvas = canUseNewCanvas && !forceUseOldCanvas;
+      const { platform } = await wx.getSystemInfo();
+			let isUseNewCanvas = canUseNewCanvas && !forceUseOldCanvas;
+			if (platform && /windows/i.test(platform)) {
+				isUseNewCanvas = false;
+			} else {
+				isUseNewCanvas = canUseNewCanvas && !forceUseOldCanvas;
+			}
+			this.setData({ isUseNewCanvas });
       this.setData({ isUseNewCanvas });
 
       if (forceUseOldCanvas && canUseNewCanvas) {
