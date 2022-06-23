@@ -200,11 +200,17 @@ Component({
         var handler = this.chart.getZr().handler;
         handler.dispatch('mousedown', {
           zrX: touch.x,
-          zrY: touch.y
+          zrY: touch.y,
+          preventDefault: () => {},
+          stopImmediatePropagation: () => {},
+          stopPropagation: () => {}
         });
         handler.dispatch('mousemove', {
           zrX: touch.x,
-          zrY: touch.y
+          zrY: touch.y,
+          preventDefault: () => {},
+          stopImmediatePropagation: () => {},
+          stopPropagation: () => {}
         });
         handler.processGesture(wrapTouch(e), 'start');
       }
@@ -216,7 +222,10 @@ Component({
         var handler = this.chart.getZr().handler;
         handler.dispatch('mousemove', {
           zrX: touch.x,
-          zrY: touch.y
+          zrY: touch.y,
+          preventDefault: () => {},
+          stopImmediatePropagation: () => {},
+          stopPropagation: () => {}
         });
         handler.processGesture(wrapTouch(e), 'change');
       }
@@ -228,11 +237,17 @@ Component({
         var handler = this.chart.getZr().handler;
         handler.dispatch('mouseup', {
           zrX: touch.x,
-          zrY: touch.y
+          zrY: touch.y,
+          preventDefault: () => {},
+          stopImmediatePropagation: () => {},
+          stopPropagation: () => {}
         });
         handler.dispatch('click', {
           zrX: touch.x,
-          zrY: touch.y
+          zrY: touch.y,
+          preventDefault: () => {},
+          stopImmediatePropagation: () => {},
+          stopPropagation: () => {}
         });
         handler.processGesture(wrapTouch(e), 'end');
       }

@@ -77,13 +77,15 @@ export default class WxCanvas {
       wxName: 'touchEnd',
       ecName: 'click'
     }];
-
     eventNames.forEach(name => {
       this.event[name.wxName] = e => {
         const touch = e.touches[0];
         this.chart.getZr().handler.dispatch(name.ecName, {
           zrX: name.wxName === 'tap' ? touch.clientX : touch.x,
-          zrY: name.wxName === 'tap' ? touch.clientY : touch.y
+          zrY: name.wxName === 'tap' ? touch.clientY : touch.y,
+          preventDefault: () => {},
+          stopImmediatePropagation: () => {},
+          stopPropagation: () => {}
         });
       };
     });
