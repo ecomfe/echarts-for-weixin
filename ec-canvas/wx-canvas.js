@@ -33,6 +33,10 @@ export default class WxCanvas {
     this.chart = chart;
   }
 
+  addEventListener() {
+    // noop
+  }
+
   attachEvent() {
     // noop
   }
