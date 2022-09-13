@@ -112,8 +112,10 @@ Component({
       ctx = wx.createCanvasContext(this.data.canvasId, this);
       const canvas = new WxCanvas(ctx, this.data.canvasId, false);
 
-      echarts.setCanvasCreator(() => {
-        return canvas;
+      echarts.setPlatformAPI({
+        createCanvas: () => {
+          return canvas;
+        }
       });
       // const canvasDpr = wx.getSystemInfoSync().pixelRatio // 微信旧的canvas不能传入dpr
       const canvasDpr = 1
@@ -153,8 +155,10 @@ Component({
           const ctx = canvasNode.getContext('2d')
 
           const canvas = new WxCanvas(ctx, this.data.canvasId, true, canvasNode)
-          echarts.setCanvasCreator(() => {
-            return canvas
+          echarts.setPlatformAPI({
+            createCanvas: () => {
+              return canvas
+            }
           })
 
           if (typeof callback === 'function') {
