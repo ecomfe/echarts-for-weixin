@@ -261,5 +261,8 @@ function wrapTouch(event) {
     touch.offsetX = touch.x;
     touch.offsetY = touch.y;
   }
+  event.preventDefault = () => {};
+  event.stopImmediatePropagation = () => {};
+  event.stopPropagation = () => {};
   return event;
 }
