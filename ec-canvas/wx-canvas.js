@@ -3,11 +3,10 @@ export default class WxCanvas {
     this.ctx = ctx;
     this.canvasId = canvasId;
     this.chart = null;
-    this.isNew = isNew
+    this.isNew = isNew;
     if (isNew) {
       this.canvasNode = canvasNode;
-    }
-    else {
+    } else {
       this._initStyle(ctx);
     }
 
@@ -17,7 +16,7 @@ export default class WxCanvas {
   }
 
   getContext(contextType) {
-    if (contextType === '2d') {
+    if (contextType === "2d") {
       return this.ctx;
     }
   }
@@ -31,6 +30,10 @@ export default class WxCanvas {
 
   setChart(chart) {
     this.chart = chart;
+  }
+
+  removeEventListener() {
+    // noop
   }
 
   addEventListener() {
@@ -50,8 +53,8 @@ export default class WxCanvas {
       return ctx;
     };
 
-    zrender.util.$override('measureText', function (text, font) {
-      ctx.font = font || '12px sans-serif';
+    zrender.util.$override("measureText", function (text, font) {
+      ctx.font = font || "12px sans-serif";
       return ctx.measureText(text);
     });
   }
@@ -64,48 +67,51 @@ export default class WxCanvas {
 
   _initEvent() {
     this.event = {};
-    const eventNames = [{
-      wxName: 'touchStart',
-      ecName: 'mousedown'
-    }, {
-      wxName: 'touchMove',
-      ecName: 'mousemove'
-    }, {
-      wxName: 'touchEnd',
-      ecName: 'mouseup'
-    }, {
-      wxName: 'touchEnd',
-      ecName: 'click'
-    }];
-    eventNames.forEach(name => {
-      this.event[name.wxName] = e => {
+    const eventNames = [
+      {
+        wxName: "touchStart",
+        ecName: "mousedown",
+      },
+      {
+        wxName: "touchMove",
+        ecName: "mousemove",
+      },
+      {
+        wxName: "touchEnd",
+        ecName: "mouseup",
+      },
+      {
+        wxName: "touchEnd",
+        ecName: "click",
+      },
+    ];
+    eventNames.forEach((name) => {
+      this.event[name.wxName] = (e) => {
         const touch = e.touches[0];
         this.chart.getZr().handler.dispatch(name.ecName, {
-          zrX: name.wxName === 'tap' ? touch.clientX : touch.x,
-          zrY: name.wxName === 'tap' ? touch.clientY : touch.y,
+          zrX: name.wxName === "tap" ? touch.clientX : touch.x,
+          zrY: name.wxName === "tap" ? touch.clientY : touch.y,
           preventDefault: () => {},
           stopImmediatePropagation: () => {},
-          stopPropagation: () => {}
+          stopPropagation: () => {},
         });
       };
     });
   }
 
   set width(w) {
-    if (this.canvasNode) this.canvasNode.width = w
+    if (this.canvasNode) this.canvasNode.width = w;
   }
   set height(h) {
-    if (this.canvasNode) this.canvasNode.height = h
+    if (this.canvasNode) this.canvasNode.height = h;
   }
 
   get width() {
-    if (this.canvasNode)
-      return this.canvasNode.width
-    return 0
+    if (this.canvasNode) return this.canvasNode.width;
+    return 0;
   }
   get height() {
-    if (this.canvasNode)
-      return this.canvasNode.height
-    return 0
+    if (this.canvasNode) return this.canvasNode.height;
+    return 0;
   }
 }
