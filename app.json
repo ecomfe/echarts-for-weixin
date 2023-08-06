@@ -23,7 +23,8 @@
     "pages/lazyLoad/index",
     "pages/multiCharts/index",
     "pages/move/index",
-    "pages/saveCanvas/index"
+    "pages/saveCanvas/index",
+    "pages/loadImage/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

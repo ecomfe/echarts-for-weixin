@@ -77,6 +77,9 @@ Page({
     }, {
       id: 'saveCanvas',
       name: '保存 Canvas 到本地文件'
+    }, {
+      id: 'loadImage',
+      name: '加载图片'
     }]
   },
 
