@@ -1,6 +1,6 @@
-# 在微信小程序中使用 Apache ECharts (incubating)
+# 在微信小程序中使用 Apache ECharts
 
-本项目是 [Apache ECharts (incubating)](https://github.com/apache/incubator-echarts) 的微信小程序版本，以及使用的示例。
+本项目是 [Apache ECharts](https://github.com/apache/echarts) 的微信小程序版本，以及使用的示例。
 
 开发者可以通过熟悉的 ECharts 配置方式，快速开发图表，满足各种可视化需求。
 
@@ -18,7 +18,7 @@
 
 其中，`ec-canvas` 是我们提供的组件，其他文件是如何使用该组件的示例。
 
-`ec-canvas` 目录下有一个 `echarts.js`，默认我们会在每次 `echarts-for-weixin` 项目发版的时候替换成最新版的 ECharts。如有必要，可以自行从 ECharts 项目中下载[最新发布版](https://github.com/ecomfe/echarts/releases)，或者从[官网自定义构建](https://echarts.apache.org/zh/builder.html)以减小文件大小。
+`ec-canvas` 目录下有一个 `echarts.js`，默认我们会在每次 `echarts-for-weixin` 项目发版的时候替换成最新版的 ECharts。如有必要，可以自行从 ECharts 项目中下载[最新发布版](https://github.com/apache/echarts/releases)，或者从[官网自定义构建](https://echarts.apache.org/zh/builder.html)以减小文件大小。
 
 ## 引入组件
 
@@ -64,7 +64,7 @@ function initChart(canvas, width, height, dpr) {
   const chart = echarts.init(canvas, null, {
     width: width,
     height: height,
-    devicePixelRatio: dpr // 像素
+    devicePixelRatio: dpr // 像素比
   });
   canvas.setChart(chart);
 
@@ -84,7 +84,7 @@ Page({
 });
 ```
 
-这对于所有 ECharts 图表都是通用的，用户只需要修改上面 `option` 的内容，即可改变图表。`option` 的使用方法参见 [ECharts 配置项文档](https://echarts.apache.org/zh/option.html)。对于不熟悉 ECharts 的用户，可以参见 [5 分钟上手 ECharts](https://echarts.apache.org/zh/tutorial.html#5%20%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8B%20ECharts) 教程。
+这对于所有 ECharts 图表都是通用的，用户只需要修改上面 `option` 的内容，即可改变图表。`option` 的使用方法参见 [ECharts 配置项文档](https://echarts.apache.org/zh/option.html)。对于不熟悉 ECharts 的用户，可以参见 [快速上手 ECharts](https://echarts.apache.org/handbook/zh/get-started/) 教程。
 
 完整的例子请参见 [ecomfe/echarts-for-weixin](https://github.com/ecomfe/echarts-for-weixin) 项目。
 
@@ -115,7 +115,7 @@ Page({
 
 ### 文件太大怎么办？
 
-本项目默认提供的 ECharts 文件是最新版本的包含所有组件文件。可以下载不同版本的 [ECharts](https://github.com/apache/incubator-echarts/blob/master/dist/) 进行替换。建议调试时使用未压缩版本，发布时使用压缩版本，否则文件会太大无法发布。
+本项目默认提供的 ECharts 文件是最新版本的包含所有组件文件。可以下载不同版本的 [ECharts](https://github.com/apache/echarts/blob/master/dist/) 进行替换。建议调试时使用未压缩版本，发布时使用压缩版本，否则文件会太大无法发布。
 
 发布时，如果对文件大小要求更高，可以在 [ECharts 在线定制](https://echarts.apache.org/zh/builder.html)网页下载仅包含必要组件的包，并且选择压缩。
 
@@ -152,7 +152,6 @@ ECharts 中的绝大部分功能都支持小程序版本，因此这里仅说明
 
 以下功能尚不支持，如果有相关需求请在 [issue](https://github.com/ecomfe/echarts-for-weixin/issues) 中向我们反馈，对于反馈人数多的需求将优先支持：
 
-- 图片
 - 多个 zlevel 分层
 
 此外，目前还有一些 bug 尚未修复，部分需要小程序团队配合上线支持，但不影响基本的使用。已知的 bug 包括：
