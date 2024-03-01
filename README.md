@@ -1,6 +1,6 @@
 # 在微信小程序中使用 Apache ECharts
 
-本项目是 [Apache ECharts](https://github.com/apache/echarts) 的微信小程序版本，以及使用的示例。
+本项目是基于 [Apache ECharts](https://github.com/apache/echarts) 的微信小程序图表库，以及使用的示例。
 
 开发者可以通过熟悉的 ECharts 配置方式，快速开发图表，满足各种可视化需求。
 
