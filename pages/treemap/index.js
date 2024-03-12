@@ -9,15 +9,15 @@ function initChart(canvas, width, height, dpr) {
     devicePixelRatio: dpr // new
   });
   canvas.setChart(chart);
-  var data = [];
+  const data = [];
 
-  for (var i = 0; i <= 360; i++) {
-    var t = i / 180 * Math.PI;
-    var r = Math.sin(2 * t) * Math.cos(2 * t);
+  for (const i = 0; i <= 360; i++) {
+    const t = i / 180 * Math.PI;
+    const r = Math.sin(2 * t) * Math.cos(2 * t);
     data.push([r, i]);
   }
 
-  var option = {
+  const option = {
     title: {
       text: '2014年中国耕地质量',
       left: 'center',
