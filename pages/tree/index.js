@@ -9,7 +9,7 @@ function initChart(canvas, width, height, dpr) {
     devicePixelRatio: dpr // new
   });
   canvas.setChart(chart);
-  var data1 = {
+  const data1 = {
     "name": "root",
     "children": [{
       "name": "a",
@@ -46,7 +46,7 @@ function initChart(canvas, width, height, dpr) {
     }]
   };
 
-  var option = {
+  const option = {
     series: [{
       type: 'tree',
 
