@@ -10,7 +10,7 @@ function initChart(canvas, width, height, dpr) {
   });
   canvas.setChart(chart);
 
-  var option = {
+  const option = {
     title: {
       text: 'Dispersion of house price\naccording to the number of bedrooms',
       x: 'center',
@@ -50,7 +50,7 @@ function initChart(canvas, width, height, dpr) {
         }
       },
       splitLine: {
-        show: false
+        show: false,
       }
     },
 
@@ -182,7 +182,7 @@ Page({
   },
   data: {
     ec: {
-      onInit: initChart
+      onInit: initChart,
     }
   },
 
