@@ -161,3 +161,7 @@ ECharts 中的绝大部分功能都支持小程序版本，因此这里仅说明
 - iOS 平台：渐变色出现在定义区域之外的地方
 
 如有其它问题，也欢迎在 [issue](https://github.com/ecomfe/echarts-for-weixin/issues) 中向我们反馈，谢谢！
+
+## Notice
+
+The Apache Software Foundation Apache ECharts, ECharts, Apache, the Apache feather, and the Apache ECharts project logo are either registered trademarks or trademarks of the Apache Software Foundation.
